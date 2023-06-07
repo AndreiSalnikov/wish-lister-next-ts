@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  margin-bottom: 100px;
+
+  @media (max-width: 1800px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 1200px) {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.left {
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 1200px) {
+    margin-bottom: 50px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.date {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.description {
+    word-break: break-word;
+  font-size: 1.2rem;
+}
+
+.right {
+  justify-items: center;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 1800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 972px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    gap: 3rem;
+  }
+
+    @media (max-width: 648px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
+
+}
+
+.add {
+  margin-left: 10px;
+  max-width: 200px;
+  // min-width: 200px;
+  padding: 20px;
+  max-height: 143px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #000;
+  cursor: pointer;
+
+    @media (max-width: 972px) {
+    margin-top: 16px;
+  }
+
+}
+
+.editButton {
+  width: 100%;
+}
