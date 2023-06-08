@@ -84,15 +84,13 @@ const vkAuth = async () => {
   const params = 'width=480,height=700';
   const windowOpen = window.open('https://wish-lister.ru/api/user/auth/vk', '', params);
 
-  setTimeout(() => {
-    if (!windowOpen || windowOpen.closed) {
-      // The window is already closed or blocked by the browser
-      window.location.href = '/lists'; // Redirect to the main page
-    } else {
-      windowOpen.close(); // Close the window
-      window.location.href = '/lists'; // Redirect to the main page
-    }
-  }, 5000);
+  setInterval(() => {
+      if (!windowOpen || windowOpen.closed) {
+          // The window is already closed or blocked by the browser
+          window.location.href = '/lists'; // Redirect to the main page
+      }
+  },2000)
+
 };
 
     const mailAuth = () => {
