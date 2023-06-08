@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useAppSelector} from "@/hooks/redux-hooks";
 
-export function useFormValidation(values) {
+export function useFormValidation(values:any) {
 
   const user = useAppSelector((state => state.user))
   const {
@@ -17,7 +17,7 @@ export function useFormValidation(values) {
   const validateAbout = {
     required: ' ',
     validate: {
-      minLength: (value) =>
+      minLength: (value:string) =>
         value.length <= 90 || `Текст должен быть не длиннее 90 симв. Длина текста сейчас: ${value.length}`,
     }
   }
@@ -25,7 +25,7 @@ export function useFormValidation(values) {
   const validateCreate = {
     required: 'Обязательное поле',
     validate: {
-      minLength: (value) =>
+      minLength: (value: string) =>
         value.length >= 2 || `Текст должен быть не короче 2 симв. Длина текста сейчас: ${value.length}`,
     }
   }
@@ -33,7 +33,7 @@ export function useFormValidation(values) {
   const validatePrice = {
     required: 'Обязательное поле',
     validate: {
-      isNumber: (value) => /^\d+$/.test(value) || 'Введите число',
+      isNumber: (value: string) => /^\d+$/.test(value) || 'Введите число',
     }
   }
 
@@ -41,32 +41,32 @@ export function useFormValidation(values) {
   const validateLink = {
     required: 'Обязательное поле',
     pattern: {
-      value: /^https?:\/\/.+(\.jpg|\.jpeg|\.png|\.gif)$/i,
-      message: 'Поле должно содержать ссылку на изображение и начинаться с http:// или https://',
+      value: /^https:\/\/.+(\.jpg|\.jpeg|\.png|\.gif)$/i,
+      message: 'Поле должно содержать ссылку на изображение и начинаться с https://',
     },
   }
 
   const validateLinkCreateList = {
     pattern: {
-      value: /^https?:\/\/.+(\.jpg|\.jpeg|\.png|\.gif)$/i,
-      message: 'Поле должно содержать ссылку на изображение и начинаться с http:// или https://',
+      value: /^https:\/\/.+(\.jpg|\.jpeg|\.png|\.gif)$/i,
+      message: 'Поле должно содержать ссылку на изображение и начинаться с https://',
     },
   }
 
   const validateLinkAddGift = {
     required: 'Обязательное поле',
     pattern: {
-      value: /^https?:\/\//i,
-      message: 'Поле должно содержать ссылку и начинаться с http:// или https://',
+      value: /^https:\/\//i,
+      message: 'Поле должно содержать ссылку и начинаться c https://',
     },
   }
 
   const validateName = {
     required: 'Обязательное поле',
     validate: {
-      minLength: (value) =>
+      minLength: (value: string) =>
         value.length >= 2 || `Текст должен быть не короче 2 симв. Длина текста сейчас: ${value.length}`,
-      duplicate: (value) => {
+      duplicate: (value: string) => {
         const {email, reminder} = getValues()
         if (user !== null && user.email === email && user.reminder === reminder) {
           return value !== user.name;
@@ -111,7 +111,7 @@ export function useFormValidation(values) {
   const confirmPassword = {
     required: 'Обязательное поле',
     validate: {
-      confirm: (value) => {
+      confirm: (value: string) => {
         const {password} = getValues()
         return password === value || "Пароли не совпадают!";
       }
