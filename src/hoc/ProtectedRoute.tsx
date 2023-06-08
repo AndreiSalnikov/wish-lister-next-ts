@@ -13,8 +13,7 @@ export const withAuth = (WrappedComponent: React.ComponentType<any>) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-      // Fetch the user if it hasn't been fetched yet
-      if (!user) {
+      if (!user.email) {
         mainApi
           .getMe()
           .then((data) => dispatch(setUser(data)))
@@ -26,7 +25,7 @@ export const withAuth = (WrappedComponent: React.ComponentType<any>) => {
     }, [user]);
 
     // If user is not authenticated, redirect to login page
-    if (!user && !isLoading) {
+    if (!user.email && !isLoading) {
       if (typeof window !== "undefined") {
         router.replace("/");
       }
