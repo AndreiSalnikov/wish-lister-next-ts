@@ -30,7 +30,7 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
     } = useFormValidation();
 
     const router = useRouter();
-    const onSubmitRegister = async (data: { name: string, email: string, password: string, isReminderActive: boolean }, e: any) => {
+    const onSubmitRegister = async (data: {name: string, email: string,password: string, isReminderActive: boolean}, e:any) => {
         e.preventDefault();
         setLoadButton(true);
         setIsErrorSubmit("");
@@ -57,7 +57,7 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
         }
     };
 
-    const onSubmitLogin = async (data: { email: string, password: string }, e: any) => {
+    const onSubmitLogin = async (data: {email: string, password:string}, e: any) => {
         e.preventDefault();
         setLoadButton(true);
         setIsErrorSubmit("");
@@ -80,23 +80,17 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
         }
     };
 
-    function authCallback() {
-        window.close(); // Close the window
-        // You can perform additional actions here, such as redirecting the user or displaying a success message
-    }
+const vkAuth = async () => {
+   window.open('https://wish-lister.ru/api/user/auth/vk', '_blank');
 
-    const vkAuth = async () => {
-
-        window.open('https://wish-lister.ru/api/user/auth/vk', '_blank');
-        authCallback()
-        // Add an event listener to detect when the popup window is closed
-        // const popupClosedListener = setInterval(() => {
-        //   if (popup?.closed) {
-        //     clearInterval(popupClosedListener);
-        //     window.location.href = '/'; // Redirect to the main page
-        //   }
-        // }, 500);
-    };
+  // Add an event listener to detect when the popup window is closed
+  // const popupClosedListener = setInterval(() => {
+  //   if (popup?.closed) {
+  //     clearInterval(popupClosedListener);
+  //     window.location.href = '/'; // Redirect to the main page
+  //   }
+  // }, 500);
+};
 
     const mailAuth = () => {
         try {
@@ -167,8 +161,7 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
                       <span onClick={mailAuth} className={styles.popupRegisterLogin__fbLogin}>Войти через Mail.ru</span>
                     </div>
 
-                    <div onClick={vkAuth}
-                         className={`${styles.popupRegisterLogin__social} ${styles.popupRegisterLogin__google}`}
+                    <div onClick={vkAuth} className={`${styles.popupRegisterLogin__social} ${styles.popupRegisterLogin__google}`}
                          id="fb-login-text">
                       <div className={`${styles.popupRegisterLogin__svg} ${styles.popupRegisterLogin__svg_color_blue}`}>
                         <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -176,7 +169,7 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
                             d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/>
                         </svg>
                       </div>
-                      <span className={styles.popupRegisterLogin__fbLogin}>Войти через VK</span>
+                      <span  className={styles.popupRegisterLogin__fbLogin}>Войти через VK</span>
                     </div>
 
 
