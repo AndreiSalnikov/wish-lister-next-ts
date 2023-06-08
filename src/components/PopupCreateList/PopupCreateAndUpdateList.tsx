@@ -14,27 +14,37 @@ interface IGift {
     link: string,
     name: string,
     price: number,
-    reservation: object[],
+    reservation: string[],
     specification: string,
     _id: string
 }
-interface IList {
-  date: string,
-  description: string,
-  gifts: IGift[],
-  image: string,
-  owner: string
-  title: string,
-  _id:string
+interface ILists {
+    date: string,
+    description: string,
+    gifts: IGift[],
+    image: string,
+    owner: {
+        about: string,
+        avatar: string,
+        createdAt: string,
+        email: string,
+        name: string,
+        reminder: boolean,
+        reservedGifts: string[]
+        __v: number,
+        _id: string;
+    };
+    title: string,
+    _id: string
 }
 
 interface IPopupCreateAndUpdateListProps {
   isPopupOpen: boolean,
   setIsPopupOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  list?: IList,
-  setList?: React.Dispatch<React.SetStateAction<IList | undefined>>,
+  list?: ILists,
+  setList?: React.Dispatch<React.SetStateAction<ILists | undefined>>,
   lists?: object[],
-  setLists?: React.Dispatch<React.SetStateAction<IList[]>>
+  setLists?: React.Dispatch<React.SetStateAction<ILists[]>>
 
 }
 

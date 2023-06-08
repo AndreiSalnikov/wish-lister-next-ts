@@ -10,7 +10,7 @@ interface IGift {
     link: string,
     name: string,
     price: number,
-    reservation: object[],
+    reservation: string[],
     specification: string,
     _id: string
 }

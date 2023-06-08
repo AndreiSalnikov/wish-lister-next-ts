@@ -8,25 +8,35 @@ interface IGift {
     link: string,
     name: string,
     price: number,
-    reservation: object[],
+    reservation: string[],
     specification: string,
     _id: string
 }
 
-interface IList {
-  date: string,
-  description: string,
-  gifts: IGift[],
-  image: string,
-  owner: object
-  title: string,
-  _id:string
+interface ILists {
+    date: string,
+    description: string,
+    gifts: IGift[],
+    image: string,
+    owner: {
+        about: string,
+        avatar: string,
+        createdAt: string,
+        email: string,
+        name: string,
+        reminder: boolean,
+        reservedGifts: string[]
+        __v: number,
+        _id: string;
+    };
+    title: string,
+    _id: string
 }
 
 
 interface IListProps {
-    list: IList,
-    setLists: React.Dispatch<React.SetStateAction<IList[]>> | undefined;
+    list: ILists,
+    setLists: React.Dispatch<React.SetStateAction<ILists[]>> | undefined;
 }
 
 const List: React.FC<IListProps> = ({list, setLists}) => {

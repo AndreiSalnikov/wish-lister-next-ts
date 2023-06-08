@@ -7,27 +7,37 @@ import PopupCreateAndUpdateGift from "@/components/PopopAddGift/PopupCreateAndUp
 import {useAppDispatch, useAppSelector} from "@/hooks/redux-hooks";
 import {setUser} from "@/store/slices/userSlice";
 
-interface IList {
-        date: string;
-        description: string;
-        gifts: IGift[];
-        image: string;
-        owner: string;
-        title: string;
-        _id: string;
-        message?: string;
-}
 interface IGift {
     link: string,
     name: string,
     price: number,
-    reservation: object[],
+    reservation: string[],
     specification: string,
     _id: string
 }
 
+interface ILists {
+    date: string,
+    description: string,
+    gifts: IGift[],
+    image: string,
+    owner: {
+        about: string,
+        avatar: string,
+        createdAt: string,
+        email: string,
+        name: string,
+        reminder: boolean,
+        reservedGifts: string[]
+        __v: number,
+        _id: string;
+    };
+    title: string,
+    _id: string
+}
+
 interface IGiftProps {
-    setList?: React.Dispatch<React.SetStateAction<IList | undefined>> | undefined,
+    setList?: React.Dispatch<React.SetStateAction<ILists | undefined>> | undefined,
     gift: IGift
     listId?: string,
     wishlistOwner?: string
