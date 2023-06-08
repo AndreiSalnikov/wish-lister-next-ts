@@ -80,9 +80,17 @@ const PopupRegisterLogin: React.FC<IPopupRegisterLoginProps> = ({popupIsOpen, se
         }
     };
 
-    const vkAuth = async () => {
-        window.open(`https://wish-lister.ru/api/user/auth/vk`, '_blank');
+const vkAuth = async () => {
+  const popup = window.open('https://wish-lister.ru/api/user/auth/vk', '_blank');
+
+  // Add an event listener to detect when the popup window is closed
+  const popupClosedListener = setInterval(() => {
+    if (popup?.closed) {
+      clearInterval(popupClosedListener);
+      window.location.href = '/'; // Redirect to the main page
     }
+  }, 500);
+};
 
     const mailAuth = () => {
         try {
