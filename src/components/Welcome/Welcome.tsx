@@ -16,7 +16,7 @@ const Welcome = () => {
       <h1 className={styles.welcome__title}>Создайте свой идеальный список подарков</h1>
       <h2 className={styles.welcome__subtitle}>Будь то день рождения, свадьба или праздник — мы поможем!</h2>
       <span className={styles.welcome__span} onClick={() => {
-        user ? router.push('/lists') : setPopupIsOpen(!popupIsOpen)
+        user.email ? router.push('/lists') : setPopupIsOpen(!popupIsOpen)
       }}>Создать свой первый список</span>
     </section>
   );
