@@ -131,7 +131,7 @@ const vkAuth = async () => {
                 {!isEmailRegisterClicked &&
                   <>
                     <div className={`${styles.popupRegisterLogin__social} ${styles.popupRegisterLogin__google}`}
-                         id="fb-login-text">
+                         id="fb-login-text" onClick={()=>alert("Пока авторизация доступна только через VK")}>
                       <div className={styles.popupRegisterLogin__svg}>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" preserveAspectRatio="xMidYMid"
@@ -150,7 +150,7 @@ const vkAuth = async () => {
                       <span className={styles.popupRegisterLogin__fbLogin}>Войти через Google+</span>
                     </div>
 
-                    <div className={`${styles.popupRegisterLogin__social} ${styles.popupRegisterLogin__google}`}>
+                    <div className={`${styles.popupRegisterLogin__social} ${styles.popupRegisterLogin__google}`} onClick={()=>alert("Пока авторизация доступна только через VK")}>
                       <div
                         className={`${styles.popupRegisterLogin__svg} ${styles.popupRegisterLogin__svg_color_mazarine}`}>
                         <svg fill="orange" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
